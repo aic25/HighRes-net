@@ -248,6 +248,9 @@ def main(config):
     # Initialize the network based on the network configuration
     fusion_model = HRNet(config["network"])
     regis_model = ShiftNet()
+    
+    fusion_model.load_state_dict(torch.load("models/weights/batch_16_views_32_min_32_beta_50.0_time_2020-01-19-03-10-00-594387/HRNet.pth"))
+    regis_model.load_state_dict(torch.load("models/weights/batch_16_views_32_min_32_beta_50.0_time_2020-01-19-03-10-00-594387/ShiftNet.pth"))
 
     optimizer = optim.Adam(list(fusion_model.parameters()) + list(regis_model.parameters()), lr=config["training"]["lr"])  # optim
     # ESA dataset

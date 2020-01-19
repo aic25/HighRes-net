@@ -191,7 +191,7 @@ def generate_submission_file(model, imset_dataset, out='../submission'):
             print('*', end='', flush='True')
     finally:
         zf.close()
-    print('\ndone. The submission-file is found at {}. Bye!'.format(sub_archive))
+    print('\ndone. The submission-file is found at {}.'.format(sub_archive))
 
     
     
@@ -217,4 +217,4 @@ class Model(object):
         return results
     
     def generate_submission_file(self, imset_dataset, out='../submission'):
-        generate_submission_file(self.model, imset_dataset, out='../submission')
+        generate_submission_file(self.model, imset_dataset, out)
